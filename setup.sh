@@ -6,6 +6,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
+cd
 echo -e "${RED}"
 echo "███████ ███████ ██    ██"
 echo "██      ██       ██  ██       "
@@ -13,12 +14,11 @@ echo "█████   ███████   ████"
 echo "██           ██    ██"
 echo "██      ███████    ██"
 echo -e "${NC}"
-echo -e "${YELLOW}• FSY-V2 TERMUX AUTO-SETUP •${NC}"
-echo -e "${YELLOW}• Powering up...${NC}\n"
-echo -e "${BLUE}[*] Updating Termux packages...${NC}"
+echo -e "${RED}• FSY-V2 TERMUX AUTO-SETUP •${NC}"
+echo -e "${RED}[•] Updating Termux packages...${NC}"
 pkg update -y && pkg upgrade -y
 
-echo -e "${BLUE}[*] Installing essential packages...${NC}"
+echo -e "${RED}[•] Installing essential packages...${NC}"
 pkg install -y \
     golang \
     python \
@@ -37,7 +37,7 @@ pkg install -y \
     tor \
     openssh
 
-echo -e "${BLUE}[*] Installing Python dependencies...${NC}"
+echo -e "${RED}[•] Installing Python dependencies...${NC}"
 pip install --upgrade pip
 pip install \
     colorama \
@@ -47,7 +47,7 @@ pip install \
     colorlog \
     termcolor
 
-echo -e "${BLUE}[*] Installing Node.js dependencies...${NC}"
+echo -e "${RED}[•] Installing Node.js dependencies...${NC}"
 npm install -g \
     puppeteer \
     axios \
@@ -55,27 +55,25 @@ npm install -g \
     request \
     colors
 
-echo -e "${BLUE}[*] Setting up Go environment...${NC}"
+echo -e "${RES}[•] Setting up Go environment...${NC}"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 echo 'export GOPATH=$HOME/go' >> ~/.bashrc
 echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.bashrc
-echo -e "${BLUE}[*] Installing Go dependencies...${NC}"
+echo -e "${RED}[•] Installing Go dependencies...${NC}"
 go install golang.org/x/net/http2@latest
 go install golang.org/x/net/publicsuffix@latest
 go install go.uber.org/zap@latest
 go install github.com/chromedp/chromedp@latest
-echo -e "${BLUE}[*] Creating project directory...${NC}"
-mkdir -p ~/FSY-V2
-cd ~/FSY-V2
+echo -e "${RED}[•] Creating project directory...${NC}"
+mkdir -p ~/TEAMFSY-V2
+cd TEAMFSY-V2
 mkdir -p proxies headers logs cookies
-echo -e "${BLUE}[*] Downloading required files...${NC}"
-echo -e "${YELLOW}[*] Downloading Tool files...${NC}"
-git clone 
-
+echo -e "${RED}[•] Downloading required files...${NC}"
+echo -e "${RED}[•] Downloading Tool files...${NC}"
+git clone https://github.com/ELLIOTpxp/FSY-V2.git
+cd FSY-V2
 chmod +x launcher.py
-
 echo -e "${GREEN}[+] Setup complete!${NC}"
-echo -e "${YELLOW}[*] To start the launcher:${NC}"
-echo -e "${BLUE}cd ~/FSY-V2${NC}"
-echo -e "${BLUE}python3 launcher.py${NC}"
+echo -e "${WHITE}[•] To start the launcher:${NC}"
+echo -e "${WHITE}cd ~/TEAMFSY-V2/FSY-V2 && python3 launcher.py${NC}"
